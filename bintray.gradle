@@ -41,7 +41,7 @@ properties.load(project.rootProject.file('credentials.properties').newDataInputS
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
-    useGpg = properties.getProperty("useGpg").toBoolean()
+    useGpg = properties.getProperty("bintray.useGpg").toBoolean()
 
 
     configurations = ['archives']
