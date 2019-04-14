@@ -38,10 +38,11 @@ artifacts {
 Properties properties = new Properties()
 properties.load(project.rootProject.file('credentials.properties').newDataInputStream())
 
+def useGpg = properties.getProperty("bintray.useGpg").toBoolean()
+
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
-    useGpg = properties.getProperty("bintray.useGpg").toBoolean()
 
 
     configurations = ['archives']
