@@ -36,7 +36,7 @@ artifacts {
 
 // Bintray
 Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
+properties.load(project.rootProject.file('credentials.properties').newDataInputStream())
 
 bintray {
     user = properties.getProperty("bintray.user")
@@ -55,7 +55,7 @@ bintray {
         publish = true
         publicDownloadNumbers = true
         version {
-            
+
             desc = libraryDescription
 
             if(useGpg){
