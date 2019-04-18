@@ -3,6 +3,36 @@
 
 apply plugin: 'com.github.dcendents.android-maven'
 
+
+Properties localProperties = new Properties()
+localProperties.load(project.rootProject.file('projectInfo.properties').newDataInputStream())
+
+ext {
+    bintrayRepo = 'noice'
+    bintrayName = 'noice-android'
+
+    publishedGroupId = localProperties.getProperty('info.publishGroupId')
+
+    libraryName = localProperties.getProperty('info.libraryName')
+
+    artifact = localProperties.getProperty('info.artifact')
+
+    libraryDescription = ''
+
+    siteUrl = localProperties.getProperty('info.siteUrl')
+    gitUrl = localProperties.getProperty('info.gitUrl')
+
+    libraryVersion = android.defaultConfig.versionName
+
+    developerId = localProperties.getProperty('info.developerId')
+    developerName = localProperties.getProperty('info.developerName')
+    developerEmail = localProperties.getProperty('info.developerEmail')
+
+    licenseName = localProperties.getProperty('info.licenseName')
+    licenseUrl = localProperties.getProperty('info.licenseUrl')
+    allLicenses = ["MIT"]
+}
+
 // Maven Group ID for the artifact
 group = publishedGroupId  
                              
