@@ -8,8 +8,8 @@ Properties localProperties = new Properties()
 localProperties.load(project.rootProject.file('projectInfo.properties').newDataInputStream())
 
 ext {
-    bintrayRepo = 'noice'
-    bintrayName = 'noice-android'
+    bintrayRepo = localProperties.getProperty('info.bintrayRepo')
+    bintrayName = localProperties.getProperty('info.bintrayName')
 
     publishedGroupId = localProperties.getProperty('info.publishGroupId')
 
